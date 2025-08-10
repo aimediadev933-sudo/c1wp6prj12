@@ -1,1 +1,754 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WP6 - Effective Broadband Solution for Bridging the Digital Divide - Nepal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1D1D1B;
+            background-color: #F8F3F0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #EC1550, #5E0023);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #5E0023;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            background-color: #F69AB0;
+            color: #1D1D1B;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(236, 21, 80, 0.9), rgba(94, 0, 35, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,100 600,300 T1200,300 L1200,600 L0,600 Z" fill="%23F69AB0" opacity="0.1"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            background-color: #F69AB0;
+            color: #1D1D1B;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            background-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .section h2 {
+            color: #EC1550;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #EC1550, #F69AB0);
+            border-radius: 2px;
+        }
+
+        .section h3 {
+            color: #5E0023;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(236, 21, 80, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #EC1550;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(236, 21, 80, 0.2);
+        }
+
+        .card h4 {
+            color: #EC1550;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Statistics */
+        .stats {
+            background: linear-gradient(135deg, #F69AB0, #EC1550);
+            padding: 3rem 0;
+            color: white;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Partners */
+        .partners {
+            background: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .partners-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .partner-tag {
+            background-color: #F69AB0;
+            color: #1D1D1B;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .partner-tag:hover {
+            background-color: #EC1550;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #EC1550, #F69AB0);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(236, 21, 80, 0.1);
+            width: 45%;
+            position: relative;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: #EC1550;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #F69AB0;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #5E0023, #EC1550);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: #F69AB0;
+            margin-bottom: 1rem;
+        }
+
+        .sdg-badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .sdg-badge {
+            background: #F69AB0;
+            color: #1D1D1B;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .project-title {
+                font-size: 1.4rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                text-align: left !important;
+                padding-left: 50px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-marker {
+                left: 20px;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .logo {
+                height: 40px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="images/logos/tein-logo.png" alt="TEIN Logo" class="logo">
+                    <img src="images/logos/asia-connect-logo.png" alt="Asia Connect Logo" class="logo">
+                    <img src="images/logos/eu-logo.png" alt="European Union Logo" class="logo">
+                </div>
+                <h1 class="project-title">WP6 - Digital Divide Bridge</h1>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#objectives">Objectives</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#outcomes">Outcomes</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#future">Future</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Effective Broadband Solution for Bridging the Digital Divide</h1>
+            <p>Connecting Nepal's remote Khumbu region through innovative high-altitude optical fiber network deployment, bringing digital inclusion to mountain communities from Namche to Everest Base Camp.</p>
+            <a href="#overview" class="cta-button">Explore the Project</a>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <section id="overview" class="section">
+                <h2>Project Overview</h2>
+                <p>The "Effective Broadband Solution for Bridging the Digital Divide - Nepal" project represents a groundbreaking initiative to bring robust digital connectivity to one of the world's most challenging terrains. Through a comprehensive 42.5 km optical fiber network from Namche to Everest Base Camp, this project addresses the critical infrastructure gap that has long isolated mountain communities from modern ICT services.</p>
+                
+                <p>Utilizing advanced technologies including drone-assisted mapping and GIS-based route design, the project adopts a Public-Private Partnership framework to ensure sustainable, long-term connectivity solutions. Beyond mere infrastructure deployment, the initiative emphasizes community engagement, policy coordination, and institutional partnerships to create lasting digital inclusion impact.</p>
+            </section>
+
+            <section class="stats">
+                <div class="container">
+                    <h2 style="color: white; margin-bottom: 3rem;">Project Impact</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">42.5</span>
+                            <span class="stat-label">Kilometers of Optical Fiber</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1</span>
+                            <span class="stat-label">Country (Nepal)</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">6</span>
+                            <span class="stat-label">Partner Organizations</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5,364m</span>
+                            <span class="stat-label">Highest Altitude (EBC)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="objectives" class="section">
+                <h2>Project Objectives</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>Primary Objective</h4>
+                        <p>Deploy a comprehensive 42.5 km optical fiber communication network from Namche to Everest Base Camp, enabling robust digital connectivity for underserved mountain communities in extreme terrain conditions.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Digital Services</h4>
+                        <p>Support critical services including telemedicine for remote healthcare delivery, e-governance for administrative efficiency, and educational connectivity to bridge the knowledge gap.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Sustainability Model</h4>
+                        <p>Pilot innovative Public-Private Partnership frameworks specifically designed for ICT sustainability in extreme terrains, creating replicable models for similar challenging environments.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Knowledge Documentation</h4>
+                        <p>Document comprehensive digital inclusion models that can be replicated in other remote mountain regions, contributing to global best practices in rural connectivity.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="activities" class="section">
+                <h2>Key Activities</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Technical Survey & Planning</h4>
+                            <p>Comprehensive two-phase baseline and technical surveys utilizing advanced drone technology and GIS mapping tools to design optimal fiber route layouts across challenging mountain terrain.</p>
+                        </div>
+                        <div class="timeline-marker"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Partnership Development</h4>
+                            <p>Strategic consultations and formal MoU development with Khumbu Pasang Lhamu Rural Municipality and regional partners to ensure local ownership and sustainable implementation.</p>
+                        </div>
+                        <div class="timeline-marker"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Infrastructure Logistics</h4>
+                            <p>Complex airlift logistics operations for cable and equipment delivery to high-altitude relay points, overcoming the challenge of material transport in remote mountain areas.</p>
+                        </div>
+                        <div class="timeline-marker"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Use Case Development</h4>
+                            <p>Identification and development of specific ICT use cases across governance, tourism, healthcare, and education sectors to maximize community benefit from connectivity infrastructure.</p>
+                        </div>
+                        <div class="timeline-marker"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="outcomes" class="section">
+                <h2>Key Outcomes</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>Policy Framework</h4>
+                        <p>Successful establishment of MoUs with KPLRM and NMA, with PPP policy framework officially approved by local government, creating a sustainable governance structure.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Infrastructure Delivery</h4>
+                        <p>Successful delivery of OFC spools to high-altitude relay zones, overcoming significant logistical challenges in extreme terrain conditions.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Technical Validation</h4>
+                        <p>Complete route layout and technical specifications validated through comprehensive GIS maps and detailed terrain assessments, ensuring implementation feasibility.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Knowledge Exchange</h4>
+                        <p>Facilitated knowledge exchange with national and international experts through specialized workshops, building local capacity and international collaboration.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="partners" class="section partners">
+                <h2>Partner Organizations</h2>
+                <div class="partners-list">
+                    <span class="partner-tag">ICT4D Nepal</span>
+                    <span class="partner-tag">Nepal Research and Education Network (NREN)</span>
+                    <span class="partner-tag">Nepal Mountain Academy (NMA)</span>
+                    <span class="partner-tag">Khumbu Pasang Lhamu Rural Municipality (KPLRM)</span>
+                    <span class="partner-tag">Nepal Tourism Board (NTB)</span>
+                    <span class="partner-tag">Ministry of Communications and Information Technology (MoCIT)</span>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Challenges & Solutions</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>Regulatory Challenges</h4>
+                        <p><strong>Challenge:</strong> Customs and VAT delays for imported equipment significantly hindered project timeline.<br>
+                        <strong>Response:</strong> Developed streamlined import procedures and worked closely with government agencies to expedite clearance processes.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Leadership Transitions</h4>
+                        <p><strong>Challenge:</strong> Sudden leadership changes in KPLRM affected project continuity and stakeholder relationships.<br>
+                        <strong>Response:</strong> Implemented robust stakeholder engagement protocols and maintained flexibility in partnership approaches.</p>
+                    </div>
+                    <div class="card">
+                        <h4>COVID-19 Impact</h4>
+                        <p><strong>Challenge:</strong> Global pandemic led to several months pause in on-ground activities and delayed implementation.<br>
+                        <strong>Response:</strong> Adapted project timelines and utilized remote coordination tools to maintain momentum during restrictions.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Environmental Risks</h4>
+                        <p><strong>Challenge:</strong> GLOF-induced infrastructure damage required comprehensive re-strategizing of layout plans.<br>
+                        <strong>Response:</strong> Incorporated climate resilience measures and developed alternative routing strategies for vulnerable areas.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="future" class="section">
+                <h2>Future Directions</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>2025 Implementation</h4>
+                        <p>Complete final cable layout and comprehensive network testing throughout 2025, ensuring full operational capacity and service reliability across the entire 42.5 km network.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Local ISP Development</h4>
+                        <p>Establish a dedicated local ISP entity to ensure sustainable last-mile connectivity and provide ongoing technical support for community access points.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Capacity Building</h4>
+                        <p>Implement comprehensive training and certification programs for local youth in network maintenance, creating sustainable employment and technical expertise within the community.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Regional Expansion</h4>
+                        <p>Expand the proven model to other remote regions including Mustang and extend collaboration to Bhutan through regional cooperation initiatives.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Project Category</h4>
+                    <p>Work Package 6 (WP6)<br>1st Call Implementation</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Geographic Focus</h4>
+                    <p>Nepal - Khumbu Region<br>Namche to Everest Base Camp</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Implementation Period</h4>
+                    <p>2021-2025<br>Multi-phase deployment</p>
+                </div>
+            </div>
+            
+            <div class="sdg-badges">
+                <div class="sdg-badge">SDG 9: Industry, Innovation and Infrastructure</div>
+                <div class="sdg-badge">SDG 17: Partnerships for the Goals</div>
+            </div>
+            
+            <p style="margin-top: 2rem; border-top: 1px solid rgba(246, 154, 176, 0.3); padding-top: 2rem;">
+                © 2025 WP6 Project - Effective Broadband Solution for Bridging the Digital Divide, Nepal. 
+                Supported by TEIN, AsiaConnect, and the European Union.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.8s ease-out';
+            observer.observe(section);
+        });
+
+        // Counter animation for statistics
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 60;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                if (target % 1 === 0) {
+                    element.textContent = Math.floor(current);
+                } else {
+                    element.textContent = current.toFixed(1);
+                }
+            }, 16);
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numbers = entry.target.querySelectorAll('.stat-number');
+                    numbers.forEach(number => {
+                        const target = parseFloat(number.textContent);
+                        animateCounter(number, target);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
